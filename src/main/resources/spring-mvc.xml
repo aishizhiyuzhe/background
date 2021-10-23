@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/mvc
+ http://www.springframework.org/schema/mvc/spring-mvc.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.aishizhiyuzhe">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:configuration.properties" />
+
+    <!--配置视图解析器-->
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix" value="${web.view.prefix}"></property>
+            <property name="suffix" value="${web.view.suffix}"></property>
+        </bean>
+    <!--开启注解-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+<!--    &lt;!&ndash; 使用thymeleaf解析 &ndash;&gt;-->
+<!--    <bean id="templateResolver"-->
+<!--          class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">-->
+<!--        <property name="prefix" value="/frontDesk/" />-->
+<!--        <property name="suffix" value=".html" />-->
+<!--        <property name="templateMode" value="HTML" />-->
+<!--        <property name="cacheable" value="false" />-->
+<!--        <property name="characterEncoding" value="UTF-8"/>&lt;!&ndash;不加会乱码&ndash;&gt;-->
+<!--    </bean>-->
+
+<!--    <bean id="templateEngine"-->
+<!--          class="org.thymeleaf.spring4.SpringTemplateEngine">-->
+<!--        <property name="templateResolver" ref="templateResolver" />-->
+<!--    </bean>-->
+
+<!--    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">-->
+<!--        <property name="templateEngine" ref="templateEngine" />-->
+<!--        &lt;!&ndash;解决中文乱码&ndash;&gt;-->
+<!--        <property name="characterEncoding" value="UTF-8"/>-->
+<!--    </bean>-->
+
+    <mvc:default-servlet-handler />
+</beans>
