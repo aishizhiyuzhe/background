@@ -3,23 +3,14 @@
 <mapper namespace="com.aishizhiyuzhe.mapper.UserDao">
 
     <resultMap id="UserResultMap" type="com.aishizhiyuzhe.entity.User">
-        <id property="id" column="id" />
-        <result property="no" column="no" />
-        <result property="name" column="name" />
-        <result property="email" column="email" />
-        <result property="phone" column="phone" />
-        <result property="mobile" column="mobile" />
-        <result property="userType" column="user_type" />
-        <result property="loginIp" column="login_ip" />
-        <result property="loginDate" column="login_date" />
-        <result property="remarks" column="remarks" />
-        <result property="loginFlag" column="loginFlag" />
-
-
-
+        <result property="loginName" column="login_Name" />
+        <result property="password" column="password" />
     </resultMap>
     <select id="selectUser" resultMap="UserResultMap" parameterType="String">
-        select * from User where 1=1 and a.login_name = #{loginName};
+        select * from sys_user where 1=1 and login_name = #{loginName}
     </select>
 
+    <insert id="insert">
+        insert into sys_user values ('aa','aa')
+    </insert>
 </mapper>
