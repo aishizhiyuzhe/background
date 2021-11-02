@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <!-- Head -->
 <head>
 
-    <title>登录</title>
-
+    <title>鸣后台管理系统</title>
+    <script src="../../static/js/jquery-3.2.1.min.js"></script>
     <!-- Meta-Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +15,15 @@
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="../../static/css/font-awesome.min.css" type="text/css" media="all">
-
 </head>
 <!-- //Head -->
-
+<script type="text/javascript" th:inline="javascript">
+    $(function(){
+        var result=[[${result}]]
+        var msg=Global.decodeURI(result.msg);
+        alert(msg)
+    })
+</script>
 <!-- Body -->
 <body>
     <section class="main">
@@ -35,7 +39,7 @@
             </div>
 
             <div class="content-bottom">
-                <form action="#" method="post">
+                <form action="/a/login" method="post">
                     <div class="field-group">
                         <span class="fa fa-user" aria-hidden="true"></span>
                         <div class="wthree-field">

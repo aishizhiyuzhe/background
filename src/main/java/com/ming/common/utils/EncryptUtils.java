@@ -1,4 +1,4 @@
-package com.aishizhiyuzhe.common.utils;
+package com.ming.common.utils;
 import org.springframework.util.Base64Utils;
 
 import javax.crypto.Cipher;

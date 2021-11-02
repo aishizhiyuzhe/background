@@ -1,4 +1,4 @@
-package com.aishizhiyuzhe.common.utils;
+package com.ming.common.utils;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;

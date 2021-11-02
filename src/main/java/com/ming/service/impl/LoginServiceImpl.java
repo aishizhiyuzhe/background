@@ -1,9 +1,9 @@
-package com.aishizhiyuzhe.service.impl;
+package com.ming.service.impl;
 
-import com.aishizhiyuzhe.common.utils.EncryptUtils;
-import com.aishizhiyuzhe.entity.User;
-import com.aishizhiyuzhe.mapper.UserDao;
-import com.aishizhiyuzhe.service.LoginService;
+import com.ming.common.utils.EncryptUtils;
+import com.ming.entity.User;
+import com.ming.mapper.UserDao;
+import com.ming.service.LoginService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,9 +17,9 @@ public class LoginServiceImpl implements LoginService {
     public boolean login(User user) {
         String password=user.getPassword();
         password=EncryptUtils.base64Encrypt(password);
+        user.setPassword(password);
         User user1=null;
         try{
-            userDao.insert();
              user1=userDao.selectUser(user.getLoginName());
         }catch (Exception ex){
             System.out.println(ex);

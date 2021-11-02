@@ -1,6 +1,6 @@
-package com.aishizhiyuzhe.mapper;
+package com.ming.mapper;
 
-import com.aishizhiyuzhe.entity.User;
+import com.ming.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

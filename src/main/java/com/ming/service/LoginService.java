@@ -1,6 +1,6 @@
-package com.aishizhiyuzhe.service;
+package com.ming.service;
 
-import com.aishizhiyuzhe.entity.User;
+import com.ming.entity.User;
 
 public interface LoginService {
 
