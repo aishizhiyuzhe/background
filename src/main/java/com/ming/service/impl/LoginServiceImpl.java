@@ -1,8 +1,8 @@
 package com.ming.service.impl;
 
 import com.ming.common.utils.EncryptUtils;
-import com.ming.entity.User;
-import com.ming.mapper.UserDao;
+import com.ming.entity.SysUser;
+import com.ming.mapper.SysUserDao;
 import com.ming.service.LoginService;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +12,13 @@ import javax.annotation.Resource;
 public class LoginServiceImpl implements LoginService {
 
     @Resource
-    UserDao userDao;
+    SysUserDao userDao;
 
-    public boolean login(User user) {
+    public boolean login(SysUser user) {
         String password=user.getPassword();
         password=EncryptUtils.base64Encrypt(password);
         user.setPassword(password);
-        User user1=null;
+        SysUser user1=null;
         try{
              user1=userDao.selectUser(user.getLoginName());
         }catch (Exception ex){

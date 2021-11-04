@@ -3,7 +3,7 @@ package com.ming.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ming.common.utils.EncryptUtils;
 import com.ming.entity.CommonResult;
-import com.ming.entity.User;
+import com.ming.entity.SysUser;
 import com.ming.service.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +24,7 @@ public class LoginController {
     @GetMapping("${adminPath}/login")
     public String login(HttpServletRequest request, HttpServletResponse response){
         HttpSession session=request.getSession();
-        User user= JSONObject.parseObject((String) session.getAttribute("user"),User.class);
+        SysUser user= JSONObject.parseObject((String) session.getAttribute("user"),SysUser.class);
         if (null==user){
             return "login";
         }
@@ -40,7 +40,7 @@ public class LoginController {
 
     @PostMapping("${adminPath}/login")
     public String login(@RequestParam("loginName") String loginName, String password, Model model,HttpServletRequest request){
-        User user=new User();
+        SysUser user=new SysUser();
         user.setLoginName(loginName);
         user.setPassword(password);
         if (! loginService.login(user)){
@@ -61,7 +61,7 @@ public class LoginController {
         if (StringUtils.isEmpty(loginName)){
             return "login";
         }
-        User user=new User();
+        SysUser user=new SysUser();
         user.setLoginName(loginName);
         user.setPassword(password);
         if (! loginService.login(user))
