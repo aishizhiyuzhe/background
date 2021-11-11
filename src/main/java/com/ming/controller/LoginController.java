@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class LoginController {
+public class LoginController extends BaseController {
 
     @Resource
     LoginService loginService;
@@ -35,7 +35,7 @@ public class LoginController {
         }
         if (! loginService.login(user))
             return "login";
-        return "index";
+        return "redirect:"+adminPath;
     }
 
     @PostMapping("${adminPath}/login")
@@ -46,26 +46,27 @@ public class LoginController {
         if (! loginService.login(user)){
             CommonResult commonResult=new CommonResult(200L,"用户名或密码错误");
             model.addAttribute("result",commonResult);
-            return "login";
+            return "redirect:"+adminPath;
         }
         HttpSession session=request.getSession();
         session.setAttribute("user", JSONObject.toJSONString(user));
-        return "index";
+        return "redirect:"+adminPath;
     }
 
     @RequestMapping("${adminPath}")
     public String index(HttpServletRequest request, HttpServletResponse response){
         HttpSession session=request.getSession();
-        String loginName= (String) session.getAttribute("login");
-        String password= (String) session.getAttribute("password");
-        if (StringUtils.isEmpty(loginName)){
-            return "login";
+        SysUser user= JSONObject.parseObject((String) session.getAttribute("user"),SysUser.class);
+        if (null==user){
+            return "redirect:"+adminPath+"/login";
         }
-        SysUser user=new SysUser();
-        user.setLoginName(loginName);
-        user.setPassword(password);
+        try {
+            user.setPassword(EncryptUtils.base64Decrypt(user.getPassword()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (! loginService.login(user))
-            return "login";
+            return "redirect:"+adminPath+"/login";
         return "index";
     }
 }

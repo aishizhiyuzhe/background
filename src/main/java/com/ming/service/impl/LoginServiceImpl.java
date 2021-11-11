@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 public class LoginServiceImpl implements LoginService {
 
     @Resource
-    SysUserDao userDao;
+    SysUserDao sysUserDao;
 
     public boolean login(SysUser user) {
         String password=user.getPassword();
@@ -20,7 +20,7 @@ public class LoginServiceImpl implements LoginService {
         user.setPassword(password);
         SysUser user1=null;
         try{
-             user1=userDao.selectUser(user.getLoginName());
+             user1=sysUserDao.selectUser(user.getLoginName());
         }catch (Exception ex){
             System.out.println(ex);
         }

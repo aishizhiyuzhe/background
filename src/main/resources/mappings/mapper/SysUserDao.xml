@@ -22,18 +22,20 @@
     <result column="sys_user_del_flag" jdbcType="CHAR" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    sys_user.id as sys_user_id, sys_user.login_name as sys_user_login_name, sys_user.`password` as `sys_user_password`, 
-    sys_user.`name` as `sys_user_name`, sys_user.email as sys_user_email, sys_user.phone as sys_user_phone, 
-    sys_user.mobile as sys_user_mobile, sys_user.user_type as sys_user_user_type, sys_user.photo as sys_user_photo, 
-    sys_user.login_ip as sys_user_login_ip, sys_user.login_date as sys_user_login_date, 
-    sys_user.login_flag as sys_user_login_flag, sys_user.create_by as sys_user_create_by, 
-    sys_user.create_date as sys_user_create_date, sys_user.update_by as sys_user_update_by, 
-    sys_user.update_date as sys_user_update_date, sys_user.remarks as sys_user_remarks, 
+    sys_user.id as sys_user_id, sys_user.login_name as sys_user_login_name, sys_user.`password` as `sys_user_password`,
+    sys_user.`name` as `sys_user_name`, sys_user.email as sys_user_email, sys_user.phone as sys_user_phone,
+    sys_user.mobile as sys_user_mobile, sys_user.user_type as sys_user_user_type, sys_user.photo as sys_user_photo,
+    sys_user.login_ip as sys_user_login_ip, sys_user.login_date as sys_user_login_date,
+    sys_user.login_flag as sys_user_login_flag, sys_user.create_by as sys_user_create_by,
+    sys_user.create_date as sys_user_create_date, sys_user.update_by as sys_user_update_by,
+    sys_user.update_date as sys_user_update_date, sys_user.remarks as sys_user_remarks,
     sys_user.del_flag as sys_user_del_flag
   </sql>
 
   <select id="selectUser" resultMap="BaseResultMap" parameterType="String">
-        select * from sys_user where 1=1 and login_name = #{loginName}
+        select
+        <include refid="Base_Column_List" />
+        from sys_user where 1=1 and login_name = #{loginName}
     </select>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">

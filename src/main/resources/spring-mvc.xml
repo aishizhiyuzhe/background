@@ -34,6 +34,15 @@
     <!-- 定义无Controller的path<->view直接映射 -->
     <mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="${adminPath}**" />
+<!--            <mvc:exclude-mapping path="${adminPath}" />-->
+            <mvc:exclude-mapping path="${adminPath}/login"/>
+            <bean class="com.ming.filter.LogInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <bean id="templateEngine"
           class="org.thymeleaf.spring5.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver" />
@@ -46,4 +55,5 @@
     </bean>
 
     <mvc:default-servlet-handler />
+
 </beans>
