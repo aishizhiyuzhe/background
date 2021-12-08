@@ -53,7 +53,6 @@
         <!--解决中文乱码-->
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
-
     <mvc:default-servlet-handler />
 
 </beans>

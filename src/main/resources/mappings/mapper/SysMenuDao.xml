@@ -9,6 +9,10 @@
     <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
     <result column="enable" jdbcType="VARCHAR" property="enable" />
     <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <collection property="sysMenuRoles" ofType="com.ming.entity.SysMenuRole" column="menu_id" select="com.ming.mapper.SysMenuRoleDao.selectMenuId">
+      <result column="menu_id" jdbcType="VARCHAR" property="menuId" />
+      <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    </collection>
   </resultMap>
   <insert id="insert" parameterType="com.ming.entity.SysMenu">
     insert into sys_menu (menu_id, menu_name, parent_id, 
@@ -67,4 +71,7 @@
       </if>
     </trim>
   </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+      select menu_id, menu_name, parent_id, menu_url, img_url, enable, weight from sys_menu
+    </select>
 </mapper>

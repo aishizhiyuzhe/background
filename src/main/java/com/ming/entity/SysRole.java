@@ -3,97 +3,35 @@ package com.ming.entity;
 import java.io.Serializable;
 
 /**
- * sys_menu
+ * sys_role
  * @author 
  */
 public class SysRole implements Serializable {
     /**
-     * 当前菜单ID
+     * 权限
      */
-    private String menuId;
+    private String roleId;
 
     /**
-     * 菜单名称
+     * 权限描述
      */
-    private String menuName;
-
-    /**
-     * 父级菜单Id
-     */
-    private String parentId;
-
-    /**
-     * 路径
-     */
-    private String menuUrl;
-
-    /**
-     * 图片URL
-     */
-    private String imgUrl;
-
-    /**
-     * 是否启用
-     */
-    private String enable;
-
-    private String weight;
+    private String roleName;
 
     private static final long serialVersionUID = 1L;
 
-    public String getMenuId() {
-        return menuId;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
-    public String getMenuName() {
-        return menuName;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getMenuUrl() {
-        return menuUrl;
-    }
-
-    public void setMenuUrl(String menuUrl) {
-        this.menuUrl = menuUrl;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public String getEnable() {
-        return enable;
-    }
-
-    public void setEnable(String enable) {
-        this.enable = enable;
-    }
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

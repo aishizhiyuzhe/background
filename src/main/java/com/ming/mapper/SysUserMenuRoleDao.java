@@ -6,4 +6,6 @@ public interface SysUserMenuRoleDao {
     int insert(SysUserMenuRole record);
 
     int insertSelective(SysUserMenuRole record);
+
+    SysUserMenuRole selectLoginName(String loginName);
 }

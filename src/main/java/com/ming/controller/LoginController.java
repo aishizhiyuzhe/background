@@ -44,7 +44,7 @@ public class LoginController extends BaseController {
         user.setLoginName(loginName);
         user.setPassword(password);
         if (! loginService.login(user)){
-            CommonResult commonResult=new CommonResult(200L,"ÓÃ»§Ãû»òÃÜÂë´íÎó");
+            CommonResult commonResult=new CommonResult(200L,"ç™»å½•å¤±è´¥ï¼Œç”¨æˆ·åå’Œå¯†ç é”™è¯¯");
             model.addAttribute("result",commonResult);
             return "redirect:"+adminPath;
         }
@@ -67,6 +67,6 @@ public class LoginController extends BaseController {
         }
         if (! loginService.login(user))
             return "redirect:"+adminPath+"/login";
-        return "index";
+        return "dist/index";
     }
 }

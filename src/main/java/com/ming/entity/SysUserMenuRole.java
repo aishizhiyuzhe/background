@@ -3,97 +3,28 @@ package com.ming.entity;
 import java.io.Serializable;
 
 /**
- * sys_menu
+ * sys_user_menu_role
  * @author 
  */
 public class SysUserMenuRole implements Serializable {
-    /**
-     * 当前菜单ID
-     */
-    private String menuId;
+    private String loginName;
 
-    /**
-     * 菜单名称
-     */
-    private String menuName;
+    private String roleId;
 
-    /**
-     * 父级菜单Id
-     */
-    private String parentId;
 
-    /**
-     * 路径
-     */
-    private String menuUrl;
-
-    /**
-     * 图片URL
-     */
-    private String imgUrl;
-
-    /**
-     * 是否启用
-     */
-    private String enable;
-
-    private String weight;
-
-    private static final long serialVersionUID = 1L;
-
-    public String getMenuId() {
-        return menuId;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
-    public String getMenuName() {
-        return menuName;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getMenuUrl() {
-        return menuUrl;
-    }
-
-    public void setMenuUrl(String menuUrl) {
-        this.menuUrl = menuUrl;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public String getEnable() {
-        return enable;
-    }
-
-    public void setEnable(String enable) {
-        this.enable = enable;
-    }
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 }

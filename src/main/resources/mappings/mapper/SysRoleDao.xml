@@ -2,68 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ming.mapper.SysRoleDao">
   <resultMap id="BaseResultMap" type="com.ming.entity.SysRole">
-    <result column="menu_id" jdbcType="VARCHAR" property="menuId" />
-    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
-    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
-    <result column="menu_url" jdbcType="VARCHAR" property="menuUrl" />
-    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
-    <result column="enable" jdbcType="VARCHAR" property="enable" />
-    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
   </resultMap>
   <insert id="insert" parameterType="com.ming.entity.SysRole">
-    insert into sys_menu (menu_id, menu_name, parent_id, 
-      menu_url, img_url, `enable`, 
-      weight)
-    values (#{menuId,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
-      #{menuUrl,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{enable,jdbcType=VARCHAR}, 
-      #{weight,jdbcType=VARCHAR})
+    insert into sys_role (role_id, role_name)
+    values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ming.entity.SysRole">
-    insert into sys_menu
+    insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="menuId != null">
-        menu_id,
+      <if test="roleId != null">
+        role_id,
       </if>
-      <if test="menuName != null">
-        menu_name,
-      </if>
-      <if test="parentId != null">
-        parent_id,
-      </if>
-      <if test="menuUrl != null">
-        menu_url,
-      </if>
-      <if test="imgUrl != null">
-        img_url,
-      </if>
-      <if test="enable != null">
-        `enable`,
-      </if>
-      <if test="weight != null">
-        weight,
+      <if test="roleName != null">
+        role_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="menuId != null">
-        #{menuId,jdbcType=VARCHAR},
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
       </if>
-      <if test="menuName != null">
-        #{menuName,jdbcType=VARCHAR},
-      </if>
-      <if test="parentId != null">
-        #{parentId,jdbcType=VARCHAR},
-      </if>
-      <if test="menuUrl != null">
-        #{menuUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="imgUrl != null">
-        #{imgUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="enable != null">
-        #{enable,jdbcType=VARCHAR},
-      </if>
-      <if test="weight != null">
-        #{weight,jdbcType=VARCHAR},
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>

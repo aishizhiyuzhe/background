@@ -1,6 +1,7 @@
 package com.ming.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * sys_menu
@@ -38,6 +39,8 @@ public class SysMenu implements Serializable {
     private String enable;
 
     private String weight;
+
+    private List<SysMenuRole> sysMenuRoles;
 
     private static final long serialVersionUID = 1L;
 
@@ -95,5 +98,13 @@ public class SysMenu implements Serializable {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public List<SysMenuRole> getSysMenuRoles() {
+        return sysMenuRoles;
+    }
+
+    public void setSysMenuRoles(List<SysMenuRole> sysMenuRoles) {
+        this.sysMenuRoles = sysMenuRoles;
     }
 }
