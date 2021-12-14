@@ -14,22 +14,11 @@ public class LoginServiceImpl implements LoginService {
     @Resource
     SysUserDao sysUserDao;
 
-    public boolean login(SysUser user) {
-        String password=user.getPassword();
-        password=EncryptUtils.base64Encrypt(password);
-        user.setPassword(password);
-        SysUser user1=null;
-        try{
-             user1=sysUserDao.selectUser(user.getLoginName());
-        }catch (Exception ex){
-            System.out.println(ex);
-        }
+    public SysUser  login(String userName) {
+//        String password=user.getPassword();
+//        password=EncryptUtils.base64Encrypt(password);
+//        user.setPassword(password);
+        return sysUserDao.selectUser(userName);
 
-        if (null ==user1){
-            return false;
-        }
-        if (password.equals(user1.getPassword()))
-            return true;
-        return false;
     }
 }

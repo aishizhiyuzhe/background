@@ -4,6 +4,6 @@ import com.ming.entity.SysUser;
 
 public interface LoginService {
 
-    public boolean login(SysUser user);
+    public SysUser login(String user);
 
 }
