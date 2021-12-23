@@ -45,16 +45,6 @@ public class LoginController extends BaseController {
 
     @PostMapping("${adminPath}/login")
     public String login(){
-//        SysUser user=new SysUser();
-//        user.setLoginName(loginName);
-//        user.setPassword(password);
-////        if (! loginService.login(user)){
-////            CommonResult commonResult=new CommonResult(200L,"登录失败，用户名和密码错误");
-////            model.addAttribute("result",commonResult);
-////            return "redirect:"+adminPath;
-////        }
-//        HttpSession session=request.getSession();
-//        session.setAttribute("user", JSONObject.toJSONString(user));
         try{
             //这个是shiro框架中的，可以直接获取用户对象
             Subject subject = SecurityUtils.getSubject();

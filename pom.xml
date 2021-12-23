@@ -30,6 +30,7 @@
         <thymeleaf-spring>3.0.9.RELEASE</thymeleaf-spring>
         <jackson.version>2.11.0</jackson.version>
         <shiro.spring>1.8.0</shiro.spring>
+        <redis.version>3.8.0</redis.version>
     </properties>
     <dependencies>
         <!-- spring -->
@@ -196,13 +197,17 @@
 <!--                </exclusion>-->
 <!--            </exclusions>-->
         </dependency>
-
+        <!--shiro相关依赖start-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.spring}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.version}</version>
+        </dependency>
     </dependencies>
 </project>

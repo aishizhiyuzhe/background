@@ -33,7 +33,22 @@
     <bean id="formAuthenticationFilter" class="com.ming.config.FormAuthenticationFilter"/>
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="realme"/>
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="sessionManager" ref="sessionManager"/>
     </bean>
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="sessionDAO" ref="sessionDao"/>
+        <property name="globalSessionTimeout" value="${session.Timeout}"/>
+        <property name="sessionValidationInterval" value="${session.Timeout}"/>
+        <property name="sessionValidationSchedulerEnabled" value="true"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
+    </bean>
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg name="name" value="${theme}.session.id"/>
+    </bean>
+    <bean id="sessionDao" class="com.ming.common.security.session.JedisSessionDao">
 
+    </bean>
+    <bean id="cacheManager" class="com.ming.common.security.cache.JedisCacheManager"></bean>
     <bean id="realme" class="com.ming.config.SystemRealme"/>
 </beans>
